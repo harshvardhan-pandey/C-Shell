@@ -9,12 +9,16 @@
 #include <sys/types.h>
 #include <pwd.h>
 #include <string.h>
+#include <assert.h>
 
 //custom headers
 #include "prompt.h"
+#include "commands/echo.h"
 
 //constant definitions
 #define LEN 512
 
+//global variable
+extern char* delims;
 
 #endif
