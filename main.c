@@ -1,6 +1,9 @@
 #include "headers.h"
 
-char* delims = " \t\n";
+char delims[3] = " \t\n";
+char homeDirectoryPath[LEN];
+char userName[LEN];
+char systemName[LEN];
 
 void runCommand(char* input){
 
@@ -14,12 +17,17 @@ void runCommand(char* input){
         echo(token);
     }
 
+    else if(strcmp(token, "pwd") == 0){
+        pwd();
+    }
+
 }
 
 int main(){
 
-    char* homeDirectoryPath = (char*) malloc(sizeof(char) * LEN);
     getcwd(homeDirectoryPath, LEN);
+    strcpy(userName,getpwuid(geteuid())->pw_name);
+    gethostname(systemName, LEN);
 
     while(true){
 

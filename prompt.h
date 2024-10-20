@@ -3,7 +3,7 @@
 
 #include "headers.h"
 
-char* processDirectoryName(char* relativePath, char* homeDirectoryPath);
-void prompt(char* homeDirectoryPath);
+char* processDirectoryName(char* relativePath);
+void prompt();
 
 #endif

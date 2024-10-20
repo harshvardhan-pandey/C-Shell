@@ -1,6 +1,6 @@
 #include "headers.h"
 
-char* processDirectoryName(char* relativePath, char* homeDirectoryPath){
+char* processDirectoryName(char* relativePath){
     
     size_t n = strlen(homeDirectoryPath);
 
@@ -13,15 +13,11 @@ char* processDirectoryName(char* relativePath, char* homeDirectoryPath){
     return relativePath;
 }
 
-void prompt(char* homeDirectoryPath){
-
-    char* userName = getpwuid(geteuid())->pw_name;
-    char* systemName = (char*) malloc(sizeof(char) * LEN);
-    gethostname(systemName, LEN);
+void prompt(){
 
     char* relativePath = (char*) malloc(sizeof(char) * LEN);
     getcwd(relativePath, LEN);
-    relativePath = processDirectoryName(relativePath, homeDirectoryPath);
+    relativePath = processDirectoryName(relativePath);
 
     printf("<%s@%s:%s> ", userName, systemName, relativePath);
 
