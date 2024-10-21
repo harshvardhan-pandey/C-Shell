@@ -35,4 +35,6 @@ void cd(char* targetPath){
         changeDirectory(currentDirectoryPath, targetPath);
     }
 
+    free(currentDirectoryPath);
+
 }

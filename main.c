@@ -15,15 +15,18 @@ void runCommand(char* input){
     token = strtok(copy, delims);
 
     if(strcmp(token, "echo") == 0){
+        addCommand(token);
         echo(token);
     }
 
     else if(strcmp(token, "pwd") == 0){
+        addCommand(token);
         pwd();
     }
 
     else if(strcmp(token, "cd") == 0){
 
+        addCommand(token);
         char* targetPath;
         targetPath = strtok(NULL, delims);
 
@@ -37,8 +40,18 @@ void runCommand(char* input){
 
     }
 
+    else if(strcmp(token, "exit") == 0){
+        addCommand(token);
+        exit(0);
+    }
+
+    else if(strcmp(token, "history") == 0){
+        addCommand(token);
+        printHistory();
+    }
+
     else{
-        fprintf(stderr, "%s: commanf not found\n", token);
+        fprintf(stderr, "%s: command not found\n", token);
     }
 
 }
@@ -48,6 +61,7 @@ int main(){
     getcwd(homeDirectoryPath, LEN);
     strcpy(userName,getpwuid(geteuid())->pw_name);
     gethostname(systemName, LEN);
+    initHistory();
 
     while(true){
 
@@ -70,6 +84,7 @@ int main(){
 
 
         runCommand(input);
+        free(input);
 
     }
 

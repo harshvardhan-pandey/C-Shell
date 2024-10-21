@@ -25,4 +25,7 @@ void prompt(){
 
     printf("<%s@%s:%s> ", userName, systemName, relativePath);
 
+    free(systemName);
+    free(relativePath);
+
 }

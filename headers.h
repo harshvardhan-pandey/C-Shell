@@ -16,6 +16,7 @@
 #include "commands/echo.h"
 #include "commands/pwd.h"
 #include "commands/cd.h"
+#include "commands/history.h"
 
 //constant definitions
 #define LEN 512

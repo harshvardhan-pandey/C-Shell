@@ -37,5 +37,6 @@ void pwd(){
     }
     
     printf("%s\n", currentDirectoryPath);
-
+    free(currentDirectoryPath);
+    
 }
