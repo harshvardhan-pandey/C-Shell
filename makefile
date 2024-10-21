@@ -1,5 +1,5 @@
 CFLAGS = -Wall
-SOURCE_FILES = main.c prompt.c commands/echo.c commands/pwd.c
+SOURCE_FILES = main.c prompt.c commands/echo.c commands/pwd.c commands/cd.c
 OUTPUT_FILENAME = shell.out
 
 all:

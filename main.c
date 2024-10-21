@@ -1,6 +1,7 @@
 #include "headers.h"
 
 char delims[3] = " \t\n";
+char previousDirectoryPath[LEN] = "\0";
 char homeDirectoryPath[LEN];
 char userName[LEN];
 char systemName[LEN];
@@ -19,6 +20,25 @@ void runCommand(char* input){
 
     else if(strcmp(token, "pwd") == 0){
         pwd();
+    }
+
+    else if(strcmp(token, "cd") == 0){
+
+        char* targetPath;
+        targetPath = strtok(NULL, delims);
+
+        token = strtok(NULL, delims);
+        if(token != NULL){
+            perror("-bash: cd: too many arguments\n");
+            return;
+        }
+
+        cd(targetPath);
+
+    }
+
+    else{
+        fprintf(stderr, "%s: commanf not found\n", token);
     }
 
 }

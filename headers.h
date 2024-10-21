@@ -15,6 +15,7 @@
 #include "prompt.h"
 #include "commands/echo.h"
 #include "commands/pwd.h"
+#include "commands/cd.h"
 
 //constant definitions
 #define LEN 512
@@ -22,7 +23,6 @@
 //global variable
 extern char delims[3];
 extern char homeDirectoryPath[LEN];
-extern char userName[LEN];
-extern char systemName[LEN];
+extern char previousDirectoryPath[LEN];
 
 #endif

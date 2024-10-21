@@ -15,6 +15,10 @@ char* processDirectoryName(char* relativePath){
 
 void prompt(){
 
+    char* userName = getpwuid(geteuid())->pw_name;
+    char* systemName = (char*) malloc(sizeof(char) * LEN);
+    gethostname(systemName, LEN);
+
     char* relativePath = (char*) malloc(sizeof(char) * LEN);
     getcwd(relativePath, LEN);
     relativePath = processDirectoryName(relativePath);

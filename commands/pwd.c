@@ -5,6 +5,7 @@ void replaceTilde(char *str) {
     char *tildePos = strchr(str, '~');
     if (tildePos != NULL) {
         strcat(buffer, "/home/");
+        char* userName = getpwuid(geteuid())->pw_name;
         strcat(buffer, userName);
         strcat(buffer, tildePos + 1);
         strcpy(str, buffer);
